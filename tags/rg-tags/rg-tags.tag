@@ -1,8 +1,7 @@
-<rg-tags>
-
+<rg-tags class={opts.className}>
 	<div class="tags">
 	  <span class="tags__container">
-	    <button each="{ opts.tags.tags }" onclick="{ removeTag }" type="button" class="button button--primary tag">
+	    <button each="{ opts.tags.tags }" onclick="{ removeTag }" type="button" class="{ css.badge.primary }">
 				{ text }
 	      <span class="tag__close">×</span>
 	    </button>
@@ -11,6 +10,7 @@
 	</div>
 
 	<script>
+		this.mixin(CSSMixin)
 		this.on('mount', () => this.update())
 
 		if (!opts.tags) opts.tags = { options: [], tags: [] }

@@ -1,7 +1,7 @@
 <rg-bubble>
 
-	<div class="context">
-		<div class="bubble bubble--top" if="{ isvisible }">
+	<div class="context" if="{ isvisible }">
+		<div class="{css.tooltip[opts.direction]}">
 			{ opts.bubble.text }
 		</div>
 		<div class="content" onmouseover="{ showBubble }" onmouseout="{ hideBubble }" onclick="{ toggleBubble }">
@@ -10,6 +10,7 @@
 	</div>
 
 	<script>
+		this.mixin(CSSMixin)
 		this.showBubble = () => {
 			clearTimeout(this._timer)
 			this.isvisible = true
@@ -28,17 +29,9 @@
 	</script>
 
 	<style scoped>
-		.context,
-		.content {
+		rg-bubble, [data-is="rg-bubble"] {
 			display: inline-block;
 			position: relative;
-		}
-
-		.bubble {
-			position: absolute;
-			top: -70px;
-			left: 50%;
-			transform: translate3d(-50%, 0, 0);
 		}
 	</style>
 </rg-bubble>

@@ -8,9 +8,8 @@
 				 onfocus="{ open }"
 				 readonly="{ !opts.select.filter }">
 
-	<ul class="menu menu--high" if="{ isvisible }">
-		<li each="{ options }" onclick="{ parent.select }"
-				 class="menu__item { 'menu__item--active': selected, 'menu__item--disabled': disabled, 'menu__item--hover': active }">
+	<ul class="{ css.menu.outer }" if="{ isvisible }">
+		<li each="{ options }" onclick="{ parent.select }" class="{ className }">
 			{ text }
 		</li>
 	</ul>
@@ -96,6 +95,13 @@
 					this.trigger('filter')
 				}
 			}
+			this.options.forEach(o => {
+        let state
+        if (o.disabled) { state = "disabled" }
+        else if (o.selected) { state = "active" }
+        else if (o.active) { state = "hover" }
+        o.className = this.css.menu[state]
+      })
 		})
 
 		const getValue = () => getInput().value
