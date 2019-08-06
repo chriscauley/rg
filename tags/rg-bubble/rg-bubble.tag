@@ -1,7 +1,7 @@
 <rg-bubble>
 
-	<div class="context" if="{ isvisible }">
-		<div class="{css.tooltip[opts.direction]}">
+	<div class="context">
+		<div class="{css.tooltip[opts.direction]}" if="{ isvisible }">
 			{ opts.bubble.text }
 		</div>
 		<div class="content" onmouseover="{ showBubble }" onmouseout="{ hideBubble }" onclick="{ toggleBubble }">
