@@ -7,10 +7,11 @@ window.CSSMixin = (() => {
 
   const variants = {
     alert: _variants,
-    tooltip: ['top', 'bottom', 'left', 'right'],
-    menu: ['disabled', 'active', 'hover', 'default'],
-    button: _variants,
     badge: _variants,
+    button: _variants,
+    menu: ['disabled', 'active', 'hover', 'default'],
+    tooltip: ['top', 'bottom', 'left', 'right'],
+    field: ['success', 'error', 'disabled'],
   }
 
   const register = (source) => {
@@ -37,9 +38,16 @@ window.CSSMixin = (() => {
       _base: "alerts__alert alerts__alert--${VARIANT}",
       toString() { return this.default },
     },
+    badge: {
+      _base: "button button--${VARIANT} tag",
+    },
     button: {
       close: "button button--close",
       _base: "button button--${VARIANT}",
+    },
+    field: {
+      _base: "field field--${VARIANT}",
+      default: "field",
     },
     menu: {
       outer: 'menu menu--high',
@@ -48,10 +56,8 @@ window.CSSMixin = (() => {
     },
     tooltip: {
       _base: "bubble bubble--${VARIANT}",
+      _default: "top",
     },
-    badge: {
-      _base: "button button--${VARIANT} tag",
-    }
   })
 
   register({

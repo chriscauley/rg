@@ -1,7 +1,7 @@
 <rg-date>
 
 	<div class="container">
-		<input type="text" class="field" onclick="{ open }" value="{ value }" readonly />
+		<input type="text" class="{css.field.default}" onclick="{ open }" value="{ value }" readonly />
 
 		<div class="calendar calendar--high" if="{ isvisible }">
 			<button class="calendar__control" disabled="{ opts.date.min.isSame(opts.date.date, 'year') }" onclick="{ prevYear }">‹</button>
@@ -29,6 +29,7 @@
 	</div>
 
 	<script>
+		this.mixin(CSSMixin)
 		const toMoment = d => {
 			if (!moment.isMoment(d)) d = moment(d)
 			if (d.isValid()) return d
@@ -168,6 +169,7 @@
 			min-width: 300px;
 			margin-top: .5em;
 			left: 0;
+			z-index: 501;
 		}
 
 	</style>

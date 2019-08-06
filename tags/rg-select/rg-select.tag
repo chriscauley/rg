@@ -2,7 +2,7 @@
 
 	<input type="{ opts.select.filter ? 'search' : 'text' }"
 				 name="selectfield"
-				 class="field"
+				 class="{css.field.default}"
 				 placeholder="{ opts.select.placeholder }"
 				 onkeydown="{ keydown }"
 				 onfocus="{ open }"

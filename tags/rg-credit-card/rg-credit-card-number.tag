@@ -1,8 +1,9 @@
 <rg-credit-card-number>
 
-		<input type="text" name="cardnumber" class="field card-no { icon } { 'field--success': opts.card.valid }" oninput="{ oninput }" placeholder="{ opts.card.placeholder }">
+		<input type="text" name="cardnumber" class="card-no { icon } { className }" oninput="{ oninput }" placeholder="{ opts.card.placeholder }">
 
 	<script>
+		this.mixin(CSSMixin)
 		this.on("mount",() => {
 			this.input = this.root.querySelector("input")
 			this.input.value = opts.card.cardnumber
@@ -21,6 +22,7 @@
 			const res = validateCreditCard(opts.card.cardnumber)
 			opts.card.valid = res.valid
 			this.icon = opts.card.valid ? res.card_type.name : ''
+			this.className = this.css.field[res.valid ? 'success' : 'default']
 		})
 
 		function validateCreditCard(input) {
