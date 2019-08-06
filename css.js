@@ -14,6 +14,17 @@ window.CSSMixin = (() => {
     field: ['success', 'error', 'disabled'],
   }
 
+  const matches = {
+    tab_content: tab => {
+      if (tab.disabled) {
+        return "disabled"
+      }
+      return tab.active ? "active" : "default"
+    },
+  }
+
+  matches.tab_nav = matches.tab_content
+
   const register = (source) => {
     Object.keys(source).filter(n => !n.startsWith("_")).forEach( component_name => {
       const component = source[component_name]
@@ -26,6 +37,11 @@ window.CSSMixin = (() => {
 
       const _default = component._default || "default"
       component['undefined'] = component['undefined'] || component[_default]
+      if (matches[component_name] && !component.match) {
+        component.match = obj => {
+          return component[matches[component_name](obj)] || component.default
+        }
+      }
     })
     sources[source._name] = source
   }
@@ -43,16 +59,28 @@ window.CSSMixin = (() => {
     },
     button: {
       close: "button button--close",
+      default: "button",
       _base: "button button--${VARIANT}",
     },
     field: {
       _base: "field field--${VARIANT}",
       default: "field",
     },
-    menu: {
+    menu: { // #! TODO should this be called dropdown? I think so
       outer: 'menu menu--high',
       default: 'menu__item',
       _base: 'menu__item menu__item--${VARIANT}',
+    },
+    tab_outer: "tabs tabs--primary",
+    tab_nav: {
+      outer: "tabs__headings",
+      default: "tab-heading",
+      active: "tab-heading tab-heading--active",
+      disabled: "tab-heading tab-heading--disabled",
+    },
+    tab_content: {
+      default: "tabs__tab",
+      active: "tabs__tab tabs__tab--active",
     },
     tooltip: {
       _base: "bubble bubble--${VARIANT}",

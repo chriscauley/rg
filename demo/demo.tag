@@ -5,14 +5,14 @@ import './_charts.js'
 
 	<div class="demo">
 		<rg-alerts alerts="{ alerts }"></rg-alerts>
-		<button class="button" onclick="{ addAlert }">Add alert</button>
+		<button class="{css.button.default}" onclick="{ addAlert }">Add alert</button>
 	</div>
 
 	<h2>Bubble</h2>
 
 	<div class="demo">
 		<rg-bubble bubble="{ bubble }">Hover over me</rg-bubble>
-		<button class="button" onclick="{ updateBubbleText }">Change bubble</button>
+		<button class="{css.button.default}" onclick="{ updateBubbleText }">Change bubble</button>
 	</div>
 
 	<h2>Code</h2>
@@ -20,7 +20,7 @@ import './_charts.js'
 	<div class="demo">
 		<rg-code editor="{ editorSettings }"></rg-code>
 	</div>
-	<button class="button" onclick="{ changeCode }">Change code</button>
+	<button class="{css.button.default}" onclick="{ changeCode }">Change code</button>
 
 	<h2>Chart</h2>
 	<div class="demo">
@@ -36,7 +36,7 @@ import './_charts.js'
 
 	<div class="demo">
 		<rg-credit-card-number card="{ creditcard }"></rg-credit-card-number>
-		<button class="button" onclick="{ changeCardNumber }">Change Card Number</button>
+		<button class="{css.button.default}" onclick="{ changeCardNumber }">Change Card Number</button>
 	</div>
 
 	<h2>Date</h2>
@@ -44,14 +44,14 @@ import './_charts.js'
 	<div class="demo">
 		<rg-date date="{ date }"></rg-date>
 		{ date.date }
-		<button class="button" onclick="{ changeDate }">Change date</button>
+		<button class="{css.button.default}" onclick="{ changeDate }">Change date</button>
 	</div>
 
 	<h2>Drawer</h2>
 
 	<div class="demo no-overflow">
 		<rg-drawer drawer="{ drawer }"></rg-drawer>
-		<button class="button" onclick="{ openDrawer }">Open drawer</button>
+		<button class="{css.button.default}" onclick="{ openDrawer }">Open drawer</button>
 	</div>
 
 	<h2>GA</h2>
@@ -93,7 +93,7 @@ import './_charts.js'
 
 	<div class="demo">
 		<rg-markdown markdown="{ markdown }"></rg-markdown>
-		<button class="button" onclick="{ changeMarkdown }">Change content</button>
+		<button class="{css.button.default}" onclick="{ changeMarkdown }">Change content</button>
 	</div>
 
 	<h2>Modal</h2>
@@ -103,9 +103,9 @@ import './_charts.js'
 			Well hello there!
 		</rg-modal>
 	</div>
-	<button class="button" onclick="{ toggleModal }">Toggle modal</button>
-	<button class="button" onclick="{ toggleModalType }">Toggle type</button>
-	<button class="button" onclick="{ toggleModalDismissable }">Toggle dismissable</button>
+	<button class="{css.button.default}" onclick="{ toggleModal }">Toggle modal</button>
+	<button class="{css.button.default}" onclick="{ toggleModalType }">Toggle type</button>
+	<button class="{css.button.default}" onclick="{ toggleModalDismissable }">Toggle dismissable</button>
 
 	<h2>Pagination</h2>
 	<div class="demo">
@@ -116,7 +116,7 @@ import './_charts.js'
 
 	<div class="demo">
 		<rg-phone-sim url="{ phonesim }"></rg-phone-sim>
-		<button class="button" onclick="{ changePhoneSimURL }">Change URL</button>
+		<button class="{css.button.default}" onclick="{ changePhoneSimURL }">Change URL</button>
 	</div>
 
 	<h2>Placehold.it</h2>
@@ -124,7 +124,7 @@ import './_charts.js'
 	<div class="demo">
 		<rg-placeholdit placeholdit="{ placeholdit }"></rg-placeholdit>
 	</div>
-	<button class="button" onclick="{ changePlacholdIt }">Change image</button>
+	<button class="{css.button.default}" onclick="{ changePlacholdIt }">Change image</button>
 
 	<h2>Select</h2>
 
@@ -143,7 +143,7 @@ import './_charts.js'
 	<div class="demo">
 		<rg-tabs tabs="{ tabs }"></rg-tabs>
 	</div>
-	<button class="button" onclick="{ changeTabContent }">Change tab</button>
+	<button class="{css.button.default}" onclick="{ changeTabContent }">Change tab</button>
 
 	<h2>Tags</h2>
 
@@ -155,7 +155,7 @@ import './_charts.js'
 
 	<div class="demo">
 		<rg-toasts toasts="{ toasts }"></rg-toasts>
-		<button class="button" onclick="{ changeToasts }">Change toasts</button>
+		<button class="{css.button.default}" onclick="{ changeToasts }">Change toasts</button>
 	</div>
 
 	<h2>Toggle</h2>
@@ -164,7 +164,7 @@ import './_charts.js'
 		<rg-toggle toggle="{ toggle }"></rg-toggle>
 		<br>
 		<br>
-		<button class="button" onclick="{ changeToggle }">Change toggle</button>
+		<button class="{css.button.default}" onclick="{ changeToggle }">Change toggle</button>
 	</div>
 
 	<h2>Unsplash</h2>
@@ -172,11 +172,12 @@ import './_charts.js'
 	<div class="demo">
 		<rg-unsplash unsplash="{ unsplash }"></rg-unsplash>
 	</div>
-	<button class="button" onclick="{ changeUnsplash }">Change image</button>
+	<button class="{css.button.default}" onclick="{ changeUnsplash }">Change image</button>
 
 	<h3>>> END</h3>
 
 	<script>
+		this.mixin(CSSMixin)
 		/*
 		 * ALERTS
 		 */
