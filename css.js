@@ -9,9 +9,11 @@ window.CSSMixin = (() => {
     alert: _variants,
     badge: _variants,
     button: _variants,
-    menu: ['disabled', 'active', 'hover', 'default'],
-    tooltip: ['top', 'bottom', 'left', 'right'],
     field: ['success', 'error', 'disabled'],
+    menu: ['disabled', 'active', 'hover', 'default'],
+    toast: _variants,
+    tooltip: ['top', 'bottom', 'left', 'right'],
+    toast_align: ['topleft', 'bottomleft', 'topright', 'bottomright'],
   }
 
   const matches = {
@@ -71,6 +73,28 @@ window.CSSMixin = (() => {
       default: 'menu__item',
       _base: 'menu__item menu__item--${VARIANT}',
     },
+    modal: {
+      root: "",
+      mask: "overlay",
+      outer: "modal",
+      ghost: "modal modal--ghost", // blaze css/ui only?
+      header: "modal__header",
+      header_title: "heading heading--small",
+      body: "modal__body",
+      footer: "modal__footer modal__footer--block",
+    },
+    pagination: {
+      outer: "pagination",
+      controls: {
+        left: "pagination__controls pagination__controls--backward",
+        right: "pagination__controls pagination__controls--forward",
+        center: "pagination__controls",
+      },
+      item: "pagination__control",
+      page: "pagination__page",
+      active_page: "pagination__page pagination__page--current",
+      ellipsis: "pagination__ellipsis",
+    },
     tab_outer: "tabs tabs--primary",
     tab_nav: {
       outer: "tabs__headings",
@@ -82,9 +106,23 @@ window.CSSMixin = (() => {
       default: "tabs__tab",
       active: "tabs__tab tabs__tab--active",
     },
+    toast_align: {
+      _base: "toasts--${VARIANT}",
+      default: "toasts--bottomright",
+    },
+    toast: {
+      _base: "toast toast--${VARIANT}",
+    },
     tooltip: {
       _base: "bubble bubble--${VARIANT}",
       _default: "top",
+    },
+    switch: {
+      outer: "toggle toggle--primary", // not bothering with variants on this
+      wrapper: "toggle__wrapper",
+      input: "",
+      track: "toggle__track",
+      handle: "toggle__handle",
     },
   })
 
@@ -116,9 +154,43 @@ window.CSSMixin = (() => {
   // this will probably switch to boot strap eventually
   css.use('blazecss')
 
+  const scopes = {}
+
+  const deepClone = obj => {
+    if(obj===null || typeof obj !== "object"){
+      return obj;
+    }
+
+    if(obj instanceof Date){
+      return new Date(obj.getTime());
+    }
+
+    if(Array.isArray(obj)){
+      var clonedArr = [];
+      obj.forEach(function(element){
+        clonedArr.push(deepClone(element))
+      });
+      return clonedArr;
+    }
+
+    let clonedObj = new obj.constructor();
+    for(var prop in obj){
+      if(obj.hasOwnProperty(prop)){
+        clonedObj[prop] = deepClone(obj[prop]);
+      }
+    }
+    return clonedObj;
+  }
+
   return {
     init(opts) {
       this.css = css.current
+    },
+    scopeCSS(name) {
+      // "elevates" a css to the primary level, ie css.pagination.outer => css.outer
+      const current = deepClone(css.current)
+      Object.assign(current, current[name])
+      this.css = current
     }
   }
 })()

@@ -1,15 +1,18 @@
 <rg-toggle>
 
-	<div class="toggle { 'toggle--' + opts.toggle.type }">
-		<label class="toggle__wrapper">
+	<div class="{ css.outer }">
+		<label class="{css.wrapper}">
 			<input type="checkbox" checked="{ opts.toggle.checked }" onclick="{ toggle }">
-			<div class="toggle__track">
-				<div class="toggle__handle"></div>
+			<div class="{ css.track }">
+				<div class="{ css.handle }"></div>
 			</div>
+			<yield />
 		</label>
 	</div>
 
 	<script>
+		this.mixin(CSSMixin)
+		this.scopeCSS("switch")
 		opts.toggle = opts.toggle || {}
 
 

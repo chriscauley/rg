@@ -1,12 +1,13 @@
 <rg-toasts>
 
-	<div if="{ opts.toasts.isvisible }" class="toasts { 'toasts--' + opts.toasts.position }">
-		<div each="{ opts.toasts.toasts }" class="toast { 'toast--' + type }" if="{ isvisible }" onclick="{ parent.toastClicked }">
+	<div if="{ opts.toasts.isvisible }" class="toasts { css.toast_align[opts.toasts.position] }">
+		<div each="{ opts.toasts.toasts }" class="toast { css.toast[type] }" if="{ isvisible }" onclick="{ parent.toastClicked }">
 			{ text }
 		</div>
 	</div>
 
 	<script>
+		this.mixin(CSSMixin)
 		opts.toasts = opts.toasts || {}
 		if (!Array.isArray(opts.toasts.toasts)) opts.toasts.toasts = []
 		this.on("mount", () => this.update())

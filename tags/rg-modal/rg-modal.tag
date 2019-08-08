@@ -1,26 +1,29 @@
-<rg-modal>
+<rg-modal class="{ css.root }">
 
-	<div class="overlay { overlay--dismissable: opts.modal.dismissable }" if="{ opts.modal.isvisible }" onclick="{ close }"></div>
-	<div class="modal { modal--ghost: opts.modal.ghost }" if="{ opts.modal.isvisible }">
-		<header class="modal__header">
-			<button if="{ opts.modal.dismissable }" type="button" class="button button--close" onclick="{ close }">
+	<div class="{ css.mask }" if="{ opts.modal.isvisible }" onclick="{ close }"></div>
+	<div class="{ outer_style }" if="{ opts.modal.isvisible }">
+		<header class="{ css.header }">
+			<button if="{ opts.modal.dismissable }" type="button" class="{ css.button.close }" onclick="{ close }">
 				&times;
 			</button>
-			<h3 class="heading heading--small">{ opts.modal.heading }</h3>
+			<h3 class="{ css.header_title }">{ opts.modal.heading }</h3>
 		</header>
 
-		<div class="modal__body">
+		<div class="{ css.body }">
 			<yield/>
 		</div>
 
-		<footer class="modal__footer { 'modal__footer--block': !opts.modal.ghost }">
-			<button each="{ opts.modal.buttons }" type="button" class="button { 'button--' + type }" onclick="{ action }" style="{ style }">
+		<footer class="{ css.footer }">
+			<button each="{ opts.modal.buttons }" type="button" class="{ css.button[type] }" onclick="{ action }" style="{ style }">
 				{ text }
 			</button>
 		</footer>
 	</div>
 
 	<script>
+		this.mixin(CSSMixin)
+		this.scopeCSS('modal')
+		this.on("mount", () => this.update())
 		if (!opts.modal) opts.modal = {}
 
 		this.close = () => {
@@ -30,9 +33,16 @@
 			}
 		}
 
+		this.on("update", () => {
+			this.outer_style = this.css[opts.modal.ghost? "ghost":"outer"]
+		})
+
 	</script>
 
 	<style scoped>
+		.modal--ghost .modal__footer {
+			display: block;
+		}
 		.modal--ghost .modal__footer .button {
 			margin: 0 .5em 0 0;
 		}

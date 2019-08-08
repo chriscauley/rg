@@ -161,7 +161,7 @@ import './_charts.js'
 	<h2>Toggle</h2>
 
 	<div class="demo">
-		<rg-toggle toggle="{ toggle }"></rg-toggle>
+		<rg-toggle toggle="{ toggle }">Click the switch or this text (label) to flip it!</rg-toggle>
 		<br>
 		<br>
 		<button class="{css.button.default}" onclick="{ changeToggle }">Change toggle</button>

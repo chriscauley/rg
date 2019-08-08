@@ -6,7 +6,7 @@
 	      <span class="tag__close">×</span>
 	    </button>
 	  </span>
-    <rg-select select={select_opts} onselect={select}/>
+    <rg-select select={select_opts} onselect={select} class="tags__container" />
 	</div>
 
 	<script>
