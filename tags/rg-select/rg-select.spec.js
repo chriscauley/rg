@@ -44,6 +44,9 @@ describe('rg-select', function () {
 
 	it('is mounted', function () {
 		tag.isMounted.should.be.true
+		const tag2 = newTag("rg-select")
+		tag2.isMounted.should.be.true
+		tag2.unmount()
 	})
 
 	it('text input is readonly', function () {
