@@ -1,4 +1,5 @@
 import './alerts'
+import './bubble'
 import './tags'
 
 import './docs'
