@@ -1,12 +1,12 @@
 <rg-tags class={opts.className}>
 	<div class="tags">
 	  <span class="tags__container">
-	    <button each="{ opts.tags.tags }" onclick="{ removeTag }" type="button" class="{ css.badge.primary }">
+	    <div each="{ opts.tags.tags }" onclick="{ removeTag }" class="{ css.badge.primary } { 'rg-pointer': removeTag }">
 				{ text }
 	      <span class="tag__close">×</span>
-	    </button>
+	    </div>
 	  </span>
-    <rg-select select={select_opts} onselect={select} class="tags__container" />
+          <rg-select select={select_opts} onselect={select} class="tags__container" />
 	</div>
 
 	<script>

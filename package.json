@@ -20,7 +20,10 @@
     "test3": "yarn run dev && yarn _test3",
     "dev": "npm run riot && npm run minify && npm run uglify",
     "build": "npm run dev && npm run _test-all",
-    "demo": "mkdir -p _dist; cp -r demo/static/* _dist; yarn parcel serve demo/index.html --out-dir _dist"
+    "build": "npm run dev && npm run test",
+    "predemo": "mkdir -p _dist; cp -r demo/static/* _dist",
+    "demo": "yarn parcel serve demo/index.html --out-dir _dist -p 4455",
+    "docs": "yarn parcel serve docs/index.html --out-dir _dist -p 4455"
   },
   "repository": {
     "type": "git",
@@ -71,5 +74,8 @@
     "sinon": "^7.3.2",
     "sinon-chai": "2.8.0",
     "uglify-es": "^3.3.9"
+  },
+  "dependencies": {
+    "riot-route": "^3.1.4"
   }
 }

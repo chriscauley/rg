@@ -7,7 +7,7 @@ const CSSMixin = (() => {
   const sources = {}
   const getLinks = () => Array.prototype.slice.call(document.querySelectorAll("link"))
 
-  const _variants = ['brand', 'info', 'warning', 'success', 'error', 'primary', 'secondary', 'light', 'dark']
+  const _variants = ['brand', 'info', 'warning', 'success', 'error', 'primary', 'secondary', 'light', 'dark', "danger"]
 
   const variants = {
     alert: _variants,
@@ -38,14 +38,16 @@ const CSSMixin = (() => {
       if (typeof component === "string") {
         return
       }
+      const _variants = variants[component_name] || []
+      const _default = component._default || "default"
+      const _missing = component._missing || []
       if (component._base) {
-        const _variants = component.variants || variants[component_name] || []
         _variants.filter(name => !component[name]).forEach( name => {
-          component[name] = component._base.replace("${VARIANT}", name)
+          const name2 = _missing.indexOf(name) === -1 ? name:_default
+          component[name] = component._base.replace("${VARIANT}", name2)
         })
       }
 
-      const _default = component._default || "default"
       component['undefined'] = component['undefined'] || component[_default]
       if (matches[component_name] && !component.match) {
         component.match = obj => {
@@ -109,7 +111,8 @@ const CSSMixin = (() => {
       Object.assign(current, current[name])
       this.css = current
     },
-    use,
+    use,,
+    variants,
   }
 })()
 riot.mixin('CSSMixin',CSSMixin)

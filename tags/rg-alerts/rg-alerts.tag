@@ -1,7 +1,7 @@
 <rg-alerts>
 
 	<div class="{css.alert.outer}">
-		<div each="{ opts.alerts }" class="{ css.alert[type] }" if="{ isvisible }" onclick="{ select }">
+		<div each="{ opts.alerts }" class="{ className }" if="{ isvisible }" onclick="{ select }">
 			<button class="{ css.button.close }" if="{ dismissable != false }" onclick="{ parent.dismiss }">
 				&times;
 			</button>
@@ -15,6 +15,7 @@
 		this.on('update', () => {
 			if (!opts.alerts) return
 			opts.alerts.forEach(alert => {
+alert.className = `${this.css.alert[alert.type]} ${alert.select && "rg-pointer"}`
 				if (typeof alert.isvisible === 'undefined') alert.isvisible = true
 				if (alert.timeout) {
 					alert.startTimer = () => {
@@ -44,4 +45,5 @@
 		}
 
 	</script>
+
 </rg-alerts>

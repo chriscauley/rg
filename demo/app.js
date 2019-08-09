@@ -5,4 +5,4 @@ import '../all'
 import '../css'
 import './demo.tag'
 
-riot.mount('rg-demo')
+riot.mount('*')
