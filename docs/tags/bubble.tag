@@ -14,7 +14,7 @@
     this.bubbles = directions.map(direction => ({
       text: `Bubble goes ${direction}!`,
       direction,
-      delay: 1e6,
+      delay: 2000,
     }))
   </script>
 </docs-bubble>

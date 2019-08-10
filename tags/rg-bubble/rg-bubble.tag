@@ -1,8 +1,9 @@
 <rg-bubble>
 
 	<div class="context">
-		<div class="{css.tooltip[opts.direction]}" if="{ isvisible }">
-			{ opts.bubble.text }
+		<div class="{css.tooltip[opts.bubble.direction]}" if="{ isvisible }">
+			<div class="{css.tooltip.arrow}"></div>
+			<div class="{css.tooltip.inner}">{ opts.bubble.text }</div>
 		</div>
 		<div class="content" onmouseover="{ showBubble }" onmouseout="{ hideBubble }" onclick="{ toggleBubble }">
 			<yield/>
@@ -20,7 +21,7 @@
 			this._timer = setTimeout(() => {
 				this.isvisible = false
 				this.update()
-			}, 1000)
+			}, opts.bubble.delay || 1000)
 		}
 
 		this.toggleBubble = () => {
