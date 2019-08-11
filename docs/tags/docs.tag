@@ -13,7 +13,7 @@
 this.menu_items = [
   "alerts",
   "bubble",
-  "TODO modal",
+  "modal",
   "TODO select",
   "TODO select+filter",
   "TODO tabs",
