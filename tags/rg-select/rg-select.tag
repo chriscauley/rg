@@ -9,7 +9,7 @@
 				 readonly="{ !opts.select.filter }">
 
 	<ul class="{ css.menu.outer }" if="{ isvisible }">
-		<li each="{ options }" onclick="{ parent.select }" class="{ className }">
+		<li each="{ options }" onclick="{ parent.select }" class="{ className }" disabled="{disabled}">
 			{ text }
 		</li>
 	</ul>
@@ -96,12 +96,12 @@
 				}
 			}
 			this.options.forEach(o => {
-        let state
-        if (o.disabled) { state = "disabled" }
-        else if (o.selected) { state = "active" }
-        else if (o.active) { state = "hover" }
-        o.className = this.css.menu[state]
-      })
+				let state
+				if (o.disabled) { state = "disabled" }
+				else if (o.selected) { state = "selected" }
+				o.className = this.css.menu[state]
+				if (o.active) { o.className += " " + this.css.menu.hover }
+			})
 		})
 
 		const getValue = () => getInput().value
