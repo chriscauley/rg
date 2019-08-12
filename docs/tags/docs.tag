@@ -14,13 +14,13 @@ this.menu_items = [
   "alerts",
   "bubble",
   "modal",
-  "TODO select",
-  "TODO select+filter",
+  "select",
+  "select+filter",
   "TODO tabs",
   "TODO toasts",
   "tags",
 ]
-this.tagName = "docs-" + opts.tagName
+this.tagName = "docs-" + opts.tagName.replace(/[^\-\w]+/g,"-")
 this.on("mount", () => this.update())
 </script>
 </rg-docs>
