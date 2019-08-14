@@ -16,8 +16,8 @@ this.menu_items = [
   "modal",
   "select",
   "select+filter",
-  "TODO tabs",
-  "TODO toasts",
+  "tabs",
+  "toasts",
   "tags",
 ]
 this.tagName = "docs-" + opts.tagName.replace(/[^\-\w]+/g,"-")

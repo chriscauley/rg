@@ -1,8 +1,10 @@
 <rg-toasts>
 
-	<div if="{ opts.toasts.isvisible }" class="toasts { css.toast_align[opts.toasts.position] }">
-		<div each="{ opts.toasts.toasts }" class="toast { css.toast[type] }" if="{ isvisible }" onclick="{ parent.toastClicked }">
-			{ text }
+	<div if="{ opts.toasts.isvisible }" class="{ css.toast_outer[opts.toasts.position] }">
+		<div each="{ opts.toasts.toasts }" class="{ css.toast[type] }" if="{ isvisible }" onclick="{ parent.toastClicked }">
+			<div class="toast-header">
+				{ text }
+			</div>
 		</div>
 	</div>
 
@@ -25,6 +27,7 @@
 		this.on('update', () => {
 			opts.toasts.position = opts.toasts.position || 'bottomright'
 			opts.toasts.toasts.forEach(toast => {
+				toast.type = toast.type || 'primary'
 				if (typeof toast.isvisible == 'undefined') toast.isvisible = true
 				toast.id = toast.id || uid()
 				if (!toast.timer && !toast.sticky) {

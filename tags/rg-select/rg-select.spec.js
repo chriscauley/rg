@@ -1,4 +1,4 @@
-describe.only('rg-select', function () {
+describe('rg-select', function () {
 	let tag, select
 	let spyOnOpen = sinon.spy()
 	let spyOnClose = sinon.spy()

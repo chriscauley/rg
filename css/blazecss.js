@@ -21,6 +21,7 @@ export default {
     outer: 'menu menu--high',
     default: 'menu__item',
     _base: 'menu__item menu__item--${VARIANT}',
+    selected: "menu__item menu__item--active"
   },
   modal: {
     root: "",
@@ -55,9 +56,9 @@ export default {
     default: "tabs__tab",
              active: "tabs__tab tabs__tab--active",
   },
-  toast_align: {
-    _base: "toasts--${VARIANT}",
-    default: "toasts--bottomright",
+  toast_outer: {
+    _base: "toasts toasts--${VARIANT}",
+    default: "toasts toasts--bottomright",
   },
   toast: {
     _base: "toast toast--${VARIANT}",

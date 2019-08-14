@@ -17,7 +17,7 @@ const CSSMixin = (() => {
     menu: ['disabled', 'active', 'hover', 'default'],
     toast: _variants,
     tooltip: ['top', 'bottom', 'left', 'right'],
-    toast_align: ['topleft', 'bottomleft', 'topright', 'bottomright'],
+    toast_outer: ['topleft', 'bottomleft', 'topright', 'bottomright'],
   }
 
   const matches = {
@@ -111,7 +111,7 @@ const CSSMixin = (() => {
       Object.assign(current, current[name])
       this.css = current
     },
-    use,,
+    use,
     variants,
   }
 })()
