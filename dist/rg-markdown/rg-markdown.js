@@ -3,7 +3,9 @@ this.on("mount", () => this.update());
 this.reader = new commonmark.Parser();
 this.writer = new commonmark.HtmlRenderer();
 this.on('update', () => {
-  if (!opts.markdown) opts.markdown = {};
+  if (!opts.markdown) opts.markdown = {
+    content: opts.content
+  };
 
   if (opts.markdown.content) {
     this.root.innerHTML = this.writer.render(this.reader.parse(opts.markdown.content));

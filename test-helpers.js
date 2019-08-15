@@ -24,7 +24,7 @@ const deepClone = obj => {
   return clonedObj;
 }
 
-const newTag = (tagName, opts) => {
+const newTag = (tagName, opts, spies=[]) => {
   const element = document.createElement(tagName)
   document.body.appendChild(element)
   const tag = window.riot.mount(element, deepClone(opts))[0]

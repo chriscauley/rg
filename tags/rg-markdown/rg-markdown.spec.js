@@ -15,7 +15,7 @@ describe('rg-markdown', function() {
     tag = newTag('rg-markdown', {
       markdown: { content: '**Some** other content' }
     })
-    $('rg-markdown').html().should.contain('<p><strong>Some</strong> other content</p>')
+    tag.root.innerHTML.should.contain('<p><strong>Some</strong> other content</p>')
   })
 
   it('renders url', function (done) {
@@ -23,7 +23,7 @@ describe('rg-markdown', function() {
     tag = newTag('rg-markdown')
     tag.opts.markdown.url = 'yay.html'
     tag.on('loaded', () => {
-      $('rg-markdown').html().should.contain("<p>Yay!</p>")
+      tag.root.innerHTML.should.contain("<p>Yay!</p>")
       unmockAjax()
       done()
     })

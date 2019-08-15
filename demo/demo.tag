@@ -8,6 +8,12 @@ import './_charts.js'
 		<button class="button" onclick="{ addAlert }">Add alert</button>
 	</div>
 
+	<h2>Accordion</h2>
+
+	<div class="demo">
+		<rg-accordion accordions="{ accordions }"></rg-accordion>
+	</div>
+
 	<h2>Bubble</h2>
 
 	<div class="demo">
@@ -205,6 +211,26 @@ import './_charts.js'
 		}
 
 		/*
+		 * ACCORDIONS
+		 */
+		this.accordions ={
+			panels: [
+				{
+					title: 'Heading 1',
+					content: '# Content 1 - _testing italics_'
+				},
+				{
+					title: 'Heading 2',
+					content: '## Content 2 some **bold proof**'
+				},
+				{
+					title: 'Heading 3',
+					content: '### Content 3'
+				},
+			]
+		}
+
+		/*
 		 * BUBBLE
 		 */
 		this.bubble = {
@@ -220,7 +246,7 @@ import './_charts.js'
 		/*
 		 * CHART
 		 */
-    Object.assign(this,_charts)
+		Object.assign(this,_charts)
 
 
 		/*
