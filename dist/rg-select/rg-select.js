@@ -1,5 +1,5 @@
-riot.tag2('rg-select', '<input type="{opts.select.filter ? \'search\' : \'text\'}" name="selectfield" class="field" placeholder="{opts.select.placeholder}" onkeydown="{keydown}" onfocus="{open}" readonly="{!opts.select.filter}"> <ul class="menu menu--high" if="{isvisible}"> <li each="{options}" onclick="{parent.select}" class="menu__item {\'menu__item--active\': selected, \'menu__item--disabled\': disabled, \'menu__item--hover\': active}"> {text} </li> </ul>', 'rg-select .menu,[data-is="rg-select"] .menu{ position: absolute; }', '', function(opts) {
-/* istanbul ignore next */
+riot.tag2('rg-select', '<input type="{opts.select.filter ? \'search\' : \'text\'}" name="selectfield" class="{css.field.default}" placeholder="{opts.select.placeholder}" onkeydown="{keydown}" onfocus="{open}" readonly="{!opts.select.filter}"> <ul class="{css.menu.outer}" if="{isvisible}"> <li each="{options}" onclick="{parent.select}" class="{className}"> {text} </li> </ul>', 'rg-select .menu,[data-is="rg-select"] .menu{ position: absolute; }', '', function(opts) {
+this.mixin(CSSMixin);
 if (!opts.select) opts.select = {
   options: []
 };
@@ -95,6 +95,20 @@ this.on('update', () => {
       this.trigger('filter');
     }
   }
+
+  this.options.forEach(o => {
+    let state;
+
+    if (o.disabled) {
+      state = "disabled";
+    } else if (o.selected) {
+      state = "active";
+    } else if (o.active) {
+      state = "hover";
+    }
+
+    o.className = this.css.menu[state];
+  });
 });
 
 const getValue = () => getInput().value;
