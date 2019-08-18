@@ -33,12 +33,14 @@ module.exports = function (config) {
 			'css.js',
 			'demo/_charts.js',
 			'test-helpers.js',
+			'3to4.tag',
 			'tags/**/*',
 			{ pattern: 'demo/inc.html', watched: false, included: false, served: true, nocache: false }
 		],
 		preprocessors: {
 			'tags/**/*.spec.js': ['babel'],
-			'tags/**/*.tag': ['riot', 'coverage']
+			'tags/**/*.tag': ['riot', 'coverage'],
+			'tags/*.tag': ['riot', 'coverage']
 		},
 		riotPreprocessor: {
 			options: {

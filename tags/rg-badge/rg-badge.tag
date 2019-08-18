@@ -4,16 +4,19 @@
     <yield />
   </span>
   <script>
-    this.css.match = (item) => {
-      // #! TODO this will be a defined on the css library
-      const { style, rounded, ghost } = item
-      let out = `c-badge c-badge--${style}`
-      if (rounded) out += " c-badge--rounded"
-      if (ghost) out += " c-badge-ghost"
-      return out
+    this.mixin('3to4')
+    this.css = {
+      match: (item) => {
+        // #! TODO this will be a defined on the css library
+        const { style, rounded, ghost } = item
+        let out = `badge badge--${style}`
+        if (rounded) out += " badge--rounded"
+        if (ghost) out += " badge--ghost"
+        return out
+      }
     }
-    this.clicked = function(e) {
-      self.trigger("badge-clicked", self.props);
+    this.clicked = (e) => {
+      this.trigger("badge-clicked", this.props);
     }
   </script>
 </rg-badge>

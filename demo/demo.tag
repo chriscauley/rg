@@ -14,6 +14,13 @@ import './_charts.js'
 		<rg-accordion accordions="{ accordions }"></rg-accordion>
 	</div>
 
+	<h2>Breadcrumb</h2>
+
+	<div class="demo">
+		<rg-breadcrumbs breadcrumbs="{ breadcrumbs }"></rg-breadcrumbs>
+		<button class="button" onclick="{ updateBreadcrumbText }">Change breadcrumb</button>
+	</div>
+
 	<h2>Bubble</h2>
 
 	<div class="demo">
@@ -229,6 +236,33 @@ import './_charts.js'
 				},
 			]
 		}
+
+    /*
+     * BREADCRUMB
+     */
+    this.breadcrumbs = {
+      links: [
+        {
+          text: "Home Star",
+          url: "http://riotgear2.github.io"
+        },
+        {
+          text: "Mercury"
+        },
+        {
+          text: "Venus",
+          badge: {
+            text: "42",
+            style: "primary",
+            ghost: true
+          }
+        },
+        {
+          text: "Third Rock",
+          istext: true
+        }
+      ]
+    }
 
 		/*
 		 * BUBBLE

@@ -1,6 +1,8 @@
 import "./3to4"
 import "./tags/rg-accordion/rg-accordion"
 import "./tags/rg-alerts/rg-alerts"
+import "./tags/rg-badge/rg-badge"
+import "./tags/rg-breadcrumbs/rg-breadcrumbs"
 import "./tags/rg-bubble/rg-bubble"
 import "./tags/rg-chart/rg-chart"
 import "./tags/rg-code/rg-code"
