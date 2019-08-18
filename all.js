@@ -1,3 +1,4 @@
+import "./3to4"
 import "./tags/rg-accordion/rg-accordion"
 import "./tags/rg-alerts/rg-alerts"
 import "./tags/rg-bubble/rg-bubble"
