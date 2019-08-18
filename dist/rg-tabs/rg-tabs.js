@@ -1,6 +1,6 @@
 riot.tag2('rg-tabs', '<div class="{css.tab_outer}"> <div class="{css.tab_nav.outer}"> <div each="{tab in opts.tabs.tabs}" class="{css.tab_nav.match(tab)}" onclick="{parent.open}"> {tab.heading} </div> </div> <div each="{tab in opts.tabs.tabs}" class="{css.tab_content.match(tab)}"> {tab.text} <rg-raw if="{tab.raw}" content="{tab.raw}"></rg-raw> <div if="{include}"> {include.responseText} </div> </div> </div>', '', '', function(opts) {
 if (!opts.tabs) opts.tabs = {};
-this.mixin(CSSMixin);
+this.mixin("CSSMixin");
 this.on('mount', () => this.update());
 
 const fetch = tab => {

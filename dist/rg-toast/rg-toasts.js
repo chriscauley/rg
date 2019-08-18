@@ -1,5 +1,5 @@
 riot.tag2('rg-toasts', '<div if="{opts.toasts.isvisible}" class="toasts {css.toast_align[opts.toasts.position]}"> <div each="{opts.toasts.toasts}" class="toast {css.toast[type]}" if="{isvisible}" onclick="{parent.toastClicked}"> {text} </div> </div>', '', '', function(opts) {
-this.mixin(CSSMixin);
+this.mixin("CSSMixin");
 opts.toasts = opts.toasts || {};
 if (!Array.isArray(opts.toasts.toasts)) opts.toasts.toasts = [];
 this.on("mount", () => this.update());

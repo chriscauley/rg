@@ -21,7 +21,7 @@
 	</div>
 
 	<script>
-		this.mixin(CSSMixin)
+		this.mixin("CSSMixin")
 		this.scopeCSS('modal')
 		this.on("mount", () => this.update())
 		if (!opts.modal) opts.modal = {}

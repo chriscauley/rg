@@ -1,5 +1,5 @@
 riot.tag2('rg-select', '<input type="{opts.select.filter ? \'search\' : \'text\'}" name="selectfield" class="{css.field.default}" placeholder="{opts.select.placeholder}" onkeydown="{keydown}" onfocus="{open}" readonly="{!opts.select.filter}"> <ul class="{css.menu.outer}" if="{isvisible}"> <li each="{options}" onclick="{parent.select}" class="{className}"> {text} </li> </ul>', 'rg-select .menu,[data-is="rg-select"] .menu{ position: absolute; }', '', function(opts) {
-this.mixin(CSSMixin);
+this.mixin("CSSMixin");
 if (!opts.select) opts.select = {
   options: []
 };

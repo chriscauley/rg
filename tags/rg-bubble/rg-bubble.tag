@@ -10,7 +10,7 @@
 	</div>
 
 	<script>
-		this.mixin(CSSMixin)
+		this.mixin("CSSMixin")
 		this.showBubble = () => {
 			clearTimeout(this._timer)
 			this.isvisible = true

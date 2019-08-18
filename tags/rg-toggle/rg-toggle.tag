@@ -11,7 +11,7 @@
 	</div>
 
 	<script>
-		this.mixin(CSSMixin)
+		this.mixin("CSSMixin")
 		this.scopeCSS("switch")
 		opts.toggle = opts.toggle || {}
 

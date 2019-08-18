@@ -16,7 +16,7 @@
 
 	<script>
 		if (!opts.tabs) opts.tabs = {}
-		this.mixin(CSSMixin)
+		this.mixin("CSSMixin")
 
 		this.on('mount', () => this.update())
 		const fetch = (tab) => {

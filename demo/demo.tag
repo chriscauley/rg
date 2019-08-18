@@ -177,7 +177,7 @@ import './_charts.js'
 	<h3>>> END</h3>
 
 	<script>
-		this.mixin(CSSMixin)
+		this.mixin("CSSMixin")
 		/*
 		 * ALERTS
 		 */

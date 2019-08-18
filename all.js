@@ -1,3 +1,5 @@
+import riot from 'riot'
+
 import "./tags/rg-alerts/rg-alerts"
 import "./tags/rg-bubble/rg-bubble"
 import "./tags/rg-chart/rg-chart"
@@ -21,3 +23,6 @@ import "./tags/rg-tags/rg-tags"
 import "./tags/rg-toast/rg-toasts"
 import "./tags/rg-toggle/rg-toggle"
 import "./tags/rg-unsplash/rg-unsplash"
+
+// I am having trouble getting parcel and es6 imports to not include riot
+window.riot = riot

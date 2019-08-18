@@ -15,7 +15,7 @@
 	</ul>
 
 	<script>
-		this.mixin(CSSMixin)
+		this.mixin("CSSMixin")
 		if (!opts.select) opts.select = { options: [] }
 
 		const handleClickOutside = e => {

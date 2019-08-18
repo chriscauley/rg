@@ -19,7 +19,7 @@
   </div>
 
   <script>
-    this.mixin(CSSMixin)
+    this.mixin("CSSMixin")
     this.scopeCSS('pagination')
     if (!opts.pagination) opts.pagination = {
       pages: 1,

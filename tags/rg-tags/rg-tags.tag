@@ -10,7 +10,7 @@
 	</div>
 
 	<script>
-		this.mixin(CSSMixin)
+		this.mixin("CSSMixin")
 		this.on('mount', () => this.update())
 
 		if (!opts.tags) opts.tags = { options: [], tags: [] }

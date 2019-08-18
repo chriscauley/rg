@@ -1,5 +1,5 @@
 const UNBUNDLED = {
-	frameworks: ['mocha', 'sinon-chai'], // no riot
+	frameworks: ['mocha', 'sinon-chai', 'parcel'], // no riot
 	files: [
 		'node_modules/moment/min/moment.min.js',
 		'node_modules/commonmark/dist/commonmark.min.js',
@@ -9,7 +9,7 @@ const UNBUNDLED = {
 		'node_modules/credit-card-type/dist/js/app.built.min.js',
 		'dependencies/js/iframify.js',
 		`dependencies/js/riot+compiler-${process.env.RIOT_VERSION}.min.js`,
-		'css.js',
+		'css/index.js',
 		'demo/_charts.js',
 		'test-helpers.js',
 		'dist/rg.min.js', // use compiled RiotGear
@@ -21,7 +21,7 @@ const UNBUNDLED = {
 module.exports = function (config) {
 	config.set({
 		basePath: '',
-		frameworks: ['mocha', 'sinon-chai', 'riot'],
+		frameworks: ['mocha', 'sinon-chai', 'riot', 'parcel'],
 		files: [
 			'node_modules/moment/min/moment.min.js',
 			'node_modules/commonmark/dist/commonmark.min.js',
@@ -30,7 +30,7 @@ module.exports = function (config) {
 			'node_modules/jquery/dist/jquery.min.js',
 			'node_modules/credit-card-type/dist/js/app.built.min.js',
 			'dependencies/js/iframify.js',
-			'css.js',
+			'css/index.js',
 			'demo/_charts.js',
 			'test-helpers.js',
 			'tags/**/*',
@@ -38,7 +38,8 @@ module.exports = function (config) {
 		],
 		preprocessors: {
 			'tags/**/*.spec.js': ['babel'],
-			'tags/**/*.tag': ['riot', 'coverage']
+			'tags/**/*.tag': ['riot', 'coverage'],
+			'css/*': ['parcel'],
 		},
 		riotPreprocessor: {
 			options: {
@@ -56,7 +57,7 @@ module.exports = function (config) {
 			}],
 		},
 		browsers: ['ChromeHeadless'],
-		singleRun: true
+		singleRun: true,
 	})
 
   if (process.env.RIOT_VERSION) {

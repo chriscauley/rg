@@ -3,7 +3,7 @@
 		<input type="text" name="cardnumber" class="card-no { icon } { className }" oninput="{ oninput }" placeholder="{ opts.card.placeholder }">
 
 	<script>
-		this.mixin(CSSMixin)
+		this.mixin("CSSMixin")
 		this.on("mount",() => {
 			this.input = this.root.querySelector("input")
 			this.input.value = opts.card.cardnumber

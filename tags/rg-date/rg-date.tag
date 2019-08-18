@@ -29,7 +29,7 @@
 	</div>
 
 	<script>
-		this.mixin(CSSMixin)
+		this.mixin("CSSMixin")
 		const toMoment = d => {
 			if (!moment.isMoment(d)) d = moment(d)
 			if (d.isValid()) return d

@@ -7,7 +7,7 @@
 	</div>
 
 	<script>
-		this.mixin(CSSMixin)
+		this.mixin("CSSMixin")
 		opts.toasts = opts.toasts || {}
 		if (!Array.isArray(opts.toasts.toasts)) opts.toasts.toasts = []
 		this.on("mount", () => this.update())
