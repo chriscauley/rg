@@ -17,6 +17,16 @@ export default {
     _base: "field field--${VARIANT}",
     default: "field",
   },
+  container: "container container--medium rg-block",
+  grid: {
+    outer: "grid",
+    w25: "grid__cell--width-25 card__content",
+    w33: "grid__cell--width-33 card__content",
+    w50: "grid__cell--width-50 card__content",
+    w66: "grid__cell--width-66 card__content",
+    w75: "grid__cell--width-75 card__content",
+    w100: "grid__cell--width-100 card__content",
+  },
   menu: { // #! TODO should this be called dropdown? I think so
     outer: 'menu menu--high',
     default: 'menu__item',
@@ -32,6 +42,10 @@ export default {
     header_title: "heading heading--small",
     body: "modal__body",
     footer: "modal__footer modal__footer--block",
+  },
+  nav: {
+    //vertical: "menu menu--high",
+    link: "menu__item label",
   },
   pagination: {
     outer: "pagination",
@@ -54,7 +68,7 @@ export default {
   },
   tab_content: {
     default: "tabs__tab",
-             active: "tabs__tab tabs__tab--active",
+    active: "tabs__tab tabs__tab--active",
   },
   toast_outer: {
     _base: "toasts toasts--${VARIANT}",
