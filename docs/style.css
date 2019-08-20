@@ -1,0 +1,38 @@
+/* #! TODO this is extra CSS for polyfilling bootstrap */
+/* move to separate file or maybe load in js? */
+.rg-pointer { cursor: pointer }
+.bs-tooltip-top { bottom: 100%; }
+.bs-tooltip-bottom { top: 100%; }
+.bs-tooltip-top, .bs-tooltip-bottom {
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 100%;
+}
+
+.bs-tooltip-left, .bs-tooltip-right {
+  top: 50%;
+  transform: translateY(-50%);
+  min-width: 100%;
+}
+
+.bs-tooltip-left { right: 100%; }
+.bs-tooltip-right { left: 100%; }
+.bs-tooltip-top .arrow,
+.bs-tooltip-bottom .arrow {
+  left: 50%;
+  margin-left: -0.4rem;
+}
+
+.bs-tooltip-right .arrow,
+.bs-tooltip-left .arrow {
+  top: 50%;
+  margin-top: -0.4rem;
+}
+
+/* bootstrap doesn't have its modal above its mask! */
+.modal-dialog {
+  z-index: 1041;
+}
+
+/* blazecss needs it's container to be block */
+.rg-block { display: block; }
