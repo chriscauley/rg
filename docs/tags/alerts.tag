@@ -3,14 +3,13 @@
 <script>
 let type = "danger"
 let dismissable
+this.mixin("CSSMixin")
 this.on("mount", () => this.update())
-
-const TYPES = CSSMixin.variants.alert
 
 const click_counts = {}
 const alert_opts = {}
 const values = {
-  type: TYPES,
+  type: this.css.VARIANTS.alert,
   dismissable: [undefined, true, false],
   text: [
     'Click me.',

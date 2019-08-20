@@ -1,3 +1,3 @@
-import CSSMixin from "./mixin.tag"
+import CSSMixin from "./mixin"
 
 export default CSSMixin

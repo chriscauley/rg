@@ -30,16 +30,16 @@ module.exports = function (config) {
 			'node_modules/jquery/dist/jquery.min.js',
 			'node_modules/credit-card-type/dist/js/app.built.min.js',
 			'dependencies/js/iframify.js',
-			'css/index.js',
 			'demo/_charts.js',
 			'test-helpers.js',
+			'css/index.js',
 			'tags/**/*',
 			{ pattern: 'demo/inc.html', watched: false, included: false, served: true, nocache: false }
 		],
 		preprocessors: {
 			'tags/**/*.spec.js': ['babel'],
 			'tags/**/*.tag': ['riot', 'coverage'],
-			'css/*': ['parcel'],
+			'css/index.js': ['parcel'],
 		},
 		riotPreprocessor: {
 			options: {

@@ -8,4 +8,5 @@ import './tags'
 import './toasts'
 
 import './docs'
+import './framework'
 import './menu'

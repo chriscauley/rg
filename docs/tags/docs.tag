@@ -1,16 +1,22 @@
-<rg-docs>
+<rg-docs class={css.container}>
   <div class="TODO hero"></div>
-  <div class="container p-4">
-    <div class="row">
-      <rg-menu items={menu_items} class="col-sm-3 d-block">
-        <h4>Components</h4>
+  <div class={css.outer}>
+    <div class={css.w33}>
+      <rg-menu items={component_items}>
+        <h4>Riot Components</h4>
       </rg-menu>
-      <div data-is={tagName} class="col"></div>
+      <rg-menu items={framework_items}>
+        <h4>CSS Frameworks</h4>
+      </rg-menu>
     </div>
+    <div data-is={tagName} class={css.w66} name={opts.name}></div>
   </div>
 
 <script>
-this.menu_items = [
+this.mixin("CSSMixin")
+this.css.use(window.SELECTED_FRAMEWORK)
+this.scopeCSS("grid")
+const components = [
   "alerts",
   "bubble",
   "modal",
@@ -20,6 +26,23 @@ this.menu_items = [
   "toasts",
   "tags",
 ]
+
+this.component_items = components.map( name => ({
+  href: `#/component/${name}/`,
+  text: `<rg-${name}>`,
+}))
+
+const frameworks = [
+  'bootstrap',
+  'blazeui',
+  'blazecss',
+]
+
+this.framework_items = frameworks.map( name => ({
+  text: name,
+  href: `#/framework/${name}/`,
+}))
+
 this.tagName = "docs-" + opts.tagName.replace(/[^\-\w]+/g,"-")
 this.on("mount", () => this.update())
 </script>

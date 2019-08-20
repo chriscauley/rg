@@ -9,7 +9,7 @@
     </div>
   </div>
   <script>
-    this.mixin(CSSMixin)
+    this.mixin('CSSMixin')
     const directions = ['top', 'bottom', 'left', 'right']
     this.bubbles = directions.map(direction => ({
       text: `Bubble goes ${direction}!`,
