@@ -1,11 +1,23 @@
 import blazecss from './blazecss'
 import blazeui from './blazeui'
+import tailwind from './tailwind'
 import bootstrap from './bootstrap'
+import deepmerge from './deepmerge'
+
+
+const processAll = source => {
+  let all = window.ALL || {}
+  all = deepmerge(all,source)
+  window.ALL = all
+}
 
 const CSSMixin = (() => {
   const recursivelyRightPad = obj => {
     // this is to make the class names all end in " " for composition purposes
     if (!obj) {
+      return
+    }
+    if (Array.isArray(obj) || typeof obj !== 'object') {
       return
     }
     Object.keys(obj).forEach(key => {
@@ -58,7 +70,6 @@ const CSSMixin = (() => {
     source.use = use
     Object.keys(source).filter(n => !n.startsWith("_")).forEach( component_name => {
       const component = source[component_name]
-      //console.log(source._name, component_name)
       if (typeof component === "string") {
         return
       }
@@ -67,8 +78,9 @@ const CSSMixin = (() => {
       const _missing = component._missing || []
       if (component._base) {
         _variants.filter(name => !component[name]).forEach( name => {
-          const name2 = _missing.indexOf(name) === -1 ? name:_default
-          component[name] = component._base.replace("${VARIANT}", name2)
+          let name2 = _missing.indexOf(name) === -1 ? name:_default
+          name2 = component._transform ? component._transform(name2) : name2
+          component[name] = component._base.replace(/\$\{VARIANT\}/g, name2)
         })
       }
 
@@ -82,6 +94,7 @@ const CSSMixin = (() => {
     sources[source._name] = source
     recursivelyRightPad(source)
     source._name = source._name.trim()
+    processAll(source)
   }
 
   const scopes = {}
@@ -116,6 +129,7 @@ const CSSMixin = (() => {
   // this will probably switch to boot strap eventually
   register(blazecss)
   register(blazeui)
+  register(tailwind)
   register(bootstrap)
 
   use('blazecss')

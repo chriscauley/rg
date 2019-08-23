@@ -19,7 +19,7 @@ export default {
   },
   container: "container container--medium rg-block",
   grid: {
-    outer: "grid",
+    outer: "grid grid--wrap",
     w25: "grid__cell--width-25 card__content",
     w33: "grid__cell--width-33 card__content",
     w50: "grid__cell--width-50 card__content",
@@ -78,7 +78,11 @@ export default {
     _base: "toast toast--${VARIANT}",
   },
   tooltip: {
-    _base: "bubble bubble--${VARIANT}",
+    top: "bubble bubble--top rg-bottom-100 rg-absolute",
+    bottom: "bubble bubble--bottom rg-top-100 rg-absolute",
+    left: "bubble bubble--left rg-right-100 rg-absolute",
+    right: "bubble bubble--right rg-left-100 rg-absolute",
+    outer: "rg-relative",
     _default: "top",
   },
   switch: {

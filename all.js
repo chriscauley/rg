@@ -1,3 +1,4 @@
+import './riot-hack'
 import "./css/index"
 import "./tags/rg-alerts/rg-alerts.tag"
 import "./tags/rg-bubble/rg-bubble.tag"
