@@ -7,6 +7,7 @@ import './select+filter'
 import './tabs'
 import './tags'
 import './toasts'
+import './toggle'
 
 import './docs'
 import './framework'

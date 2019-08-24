@@ -24,8 +24,9 @@ const components = [
   "select",
   "select+filter",
   "tabs",
-  "toasts",
   "tags",
+  "toasts",
+  "toggle",
 ]
 
 this.component_items = components.map( name => ({
