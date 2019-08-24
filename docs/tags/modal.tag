@@ -1,7 +1,8 @@
 <docs-modal>
-  <button onclick={openModal}>Open Modal</button>
+  <button onclick={openModal} class={css.button.primary}>Open Modal</button>
 
   <script>
+    this.mixin("CSSMixin")
     openModal() {
       const tag = document.createElement('rg-modal')
       tag.innerHTML = "Content goes here."

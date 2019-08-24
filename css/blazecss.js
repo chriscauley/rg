@@ -13,6 +13,8 @@ export default {
     default: "button",
     _base: "button button--${VARIANT}",
   },
+  card: {
+  },
   field: {
     _base: "field field--${VARIANT}",
     default: "field",

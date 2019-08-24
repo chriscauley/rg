@@ -1,17 +1,16 @@
-<rg-bubble>
+<rg-bubble class={css.outer}>
 
-	<div class="context">
-		<div class="{css.tooltip[opts.bubble.direction]}" if="{ isvisible }">
-			<div class="{css.tooltip.arrow}"></div>
-			<div class="{css.tooltip.inner}">{ opts.bubble.text }</div>
-		</div>
-		<div class="content" onmouseover="{ showBubble }" onmouseout="{ hideBubble }" onclick="{ toggleBubble }">
-			<yield/>
-		</div>
+	<div class="{css[opts.bubble.direction]}" if="{ isvisible }" style="min-width: 100%">
+		<div class="{css.arrow}"></div>
+		<div class="{css.inner}">{ opts.bubble.text }</div>
+	</div>
+	<div class="content" onmouseover="{ showBubble }" onmouseout="{ hideBubble }" onclick="{ toggleBubble }">
+		<yield/>
 	</div>
 
 	<script>
 		this.mixin("CSSMixin")
+		this.scopeCSS("tooltip")
 		this.showBubble = () => {
 			clearTimeout(this._timer)
 			this.isvisible = true

@@ -9,7 +9,7 @@
   <title>RiotGear \m/</title>
   <script>
     const ID = "rg-docs-link"
-    const FRAMEWORKS = {
+    const CSS_FRAMEWORKS = {
       bootstrap: "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css",
       blazecss: "https://cdn.jsdelivr.net/blazecss/1.1.3/blaze.min.css",
       tailwind: "https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css",
@@ -17,12 +17,12 @@
 
     let selected = localStorage.getItem("CSS_FRAMEWORK")
 
-    if (!FRAMEWORKS[selected]) {
+    if (!CSS_FRAMEWORKS[selected]) {
       selected = "bootstrap"
     }
     window.SELECTED_FRAMEWORK = selected
     window.__selectFramework = selected => {
-      if (!FRAMEWORKS[selected]) {
+      if (!CSS_FRAMEWORKS[selected]) {
         throw `Unknown CSS framework: ${selected}`
       }
       localStorage.setItem("CSS_FRAMEWORK", selected)
@@ -33,7 +33,7 @@
         link = document.createElement('link')
         link.rel = 'stylesheet'
         link.type = 'text/css'
-        link.href = FRAMEWORKS[selected]
+        link.href = CSS_FRAMEWORKS[selected]
         link.media = 'all'
         link.id = ID
         document.getElementsByTagName('head')[0].appendChild(link)

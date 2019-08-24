@@ -36,3 +36,13 @@
 
 /* blazecss needs it's container to be block */
 .rg-block { display: block; }
+
+/* tailwind is missing top: 100%, etc */
+.rg-top-100 { top: 100% }
+.rg-bottom-100 { bottom: 100% }
+.rg-left-100 { left: 100% }
+.rg-right-100 { right: 100% }
+
+/* blazecss is missing positioning */
+.rg-relative { position: relative; }
+.rg-absolute { position: absolute; }

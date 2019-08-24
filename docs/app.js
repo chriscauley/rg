@@ -2,7 +2,7 @@ import riot from 'riot'
 import route from 'riot-route'
 
 import "../all"
-import CSSMixin from '../css'
+import '../css'
 import './tags'
 
 const routeTag = (tagName='home', opts={}) => riot.mount('*', { ...opts, tagName })

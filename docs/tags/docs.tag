@@ -3,10 +3,10 @@
   <div class={css.outer}>
     <div class={css.w33}>
       <rg-menu items={component_items}>
-        <h4>Riot Components</h4>
+        <div class={css.h4}>Riot Components</div>
       </rg-menu>
       <rg-menu items={framework_items}>
-        <h4>CSS Frameworks</h4>
+        <div class={css.h4}>CSS Frameworks</div>
       </rg-menu>
     </div>
     <div data-is={tagName} class={css.w66} name={opts.name}></div>
@@ -36,6 +36,7 @@ const frameworks = [
   'bootstrap',
   'blazeui',
   'blazecss',
+  'tailwind',
 ]
 
 this.framework_items = frameworks.map( name => ({
