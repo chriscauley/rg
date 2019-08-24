@@ -1,6 +1,7 @@
 import './alerts'
 import './bubble'
 import './modal'
+import './pagination'
 import './select'
 import './select+filter'
 import './tabs'

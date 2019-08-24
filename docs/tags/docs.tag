@@ -20,6 +20,7 @@ const components = [
   "alerts",
   "bubble",
   "modal",
+  "pagination",
   "select",
   "select+filter",
   "tabs",
