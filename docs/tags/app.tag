@@ -1,4 +1,4 @@
-<rg-docs class={css.container}>
+<docs-app class={css.container}>
   <div class="TODO hero"></div>
   <div class={css.outer}>
     <div class={css.w33}>
@@ -49,4 +49,4 @@ this.framework_items = frameworks.map( name => ({
 this.tagName = "docs-" + opts.tagName.replace(/[^\-\w]+/g,"-")
 this.on("mount", () => this.update())
 </script>
-</rg-docs>
+</docs-app>

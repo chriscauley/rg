@@ -9,6 +9,6 @@ import './tags'
 import './toasts'
 import './toggle'
 
-import './docs'
 import './framework'
 import './menu'
+import './app'
