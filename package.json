@@ -22,6 +22,7 @@
     "build": "npm run dev && npm run _test-all",
     "predemo": "mkdir -p _dist; cp -r demo/static/* _dist",
     "demo": "yarn parcel serve demo/index.html --out-dir _dist",
+    "predocs": "mkdir -p _dist; cp -r docs/tags _dist",
     "docs": "yarn parcel serve docs/index.html --out-dir _dist"
   },
   "repository": {

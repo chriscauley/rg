@@ -1,6 +1,5 @@
 <rg-code>
-
-	<div class="editor"></div>
+	  <div class="editor" style={style}></div>
 
 	<script>
 		if (!opts.editor) opts.editor = { code: '' }
@@ -19,6 +18,8 @@
 		this.on('update', () => {
 			/* istanbul ignore next */
 			if (!this.isMounted) { return } // riot2 compatibility
+			const lines = opts.editor.code.split('\n').length
+			this.style = `min-height: ${lines*1.25}em`
 			setupEditor()
 			if (opts.editor.code != editor.getValue())
 				editor.setValue(opts.editor.code, 1)
@@ -31,7 +32,7 @@
 			if (opts.editor.url) {
 				const req = new XMLHttpRequest()
 				req.onload = resp => {
-					opts.editor.code = resp
+					opts.editor.code = req.response
 					this.update()
 				}
 				req.open('get', opts.editor.url, true)
@@ -47,15 +48,4 @@
 		})
 
 	</script>
-
-	<style scoped>
-		.editor {
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-		}
-
-	</style>
 </rg-code>

@@ -3,7 +3,7 @@
     <div each={bubble_opts in bubbles} class={css.grid.w50}>
       <div class={css.card.outer}>
         <div class={css.card.inner}>
-          <rg-bubble bubble={bubble_opts}>Hove over me</rg-bubble>
+          <rg-bubble bubble={bubble_opts}>Hover over me</rg-bubble>
         </div>
       </div>
     </div>
