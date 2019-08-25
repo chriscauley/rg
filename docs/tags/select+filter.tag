@@ -1,5 +1,5 @@
 <docs-select-filter>
-  <rg-select select={select} />
+  <rg-select select={select}></rg-select>
 
   <script>
     this.select = {

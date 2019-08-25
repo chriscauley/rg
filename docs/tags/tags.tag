@@ -1,10 +1,10 @@
 <docs-tags>
-  <rg-tags tags={_tags} />
+  <rg-tags tags={_tags}></rg-tags>
 <script>
   this._tags = {
     placeholder: 'Please select a card',
     tags: [],
-    options: [{                                                   
+    options: [{
       id: 0,
       text: 'Visa'
     }, {

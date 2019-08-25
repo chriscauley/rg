@@ -1,5 +1,5 @@
 <docs-pagination>
-  <rg-pagination pagination={pagination_props} />
+  <rg-pagination pagination={pagination_props}></rg-pagination>
 
   <script>
     this.pagination_props = {

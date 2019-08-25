@@ -1,5 +1,5 @@
 <docs-alerts>
-  <rg-alerts alerts={alerts} />
+  <rg-alerts alerts={alerts}></rg-alerts>
 <script>
 let type = "danger"
 let dismissable

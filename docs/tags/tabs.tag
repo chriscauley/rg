@@ -1,5 +1,5 @@
 <docs-tabs>
-  <rg-tabs tabs={tab_opts} />
+  <rg-tabs tabs={tab_opts}></rg-tabs>
 
   <script>
   this.tab_opts = {
