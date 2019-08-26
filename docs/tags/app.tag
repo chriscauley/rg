@@ -1,15 +1,25 @@
-<docs-app class={css.container}>
-  <div class="TODO hero"></div>
-  <div class={css.outer}>
-    <div class={css.w33}>
-      <rg-menu items={component_items} title="Riot Components">
-      </rg-menu>
-      <rg-menu items={framework_items} title="CSS Frameworks">
-      </rg-menu>
+<docs-app>
+  <div class="page-strip"></div>
+  <div class={css.container}>
+    <div class="docs-hero">
+      <div if={big_hero}>
+        <a href="/"><img src="/static/logobig.png" /></a>
+      </div>
+      <div if={!big_hero}>
+        <a href="/"><img src="/static/logobig.png" width="50" /></a>
+      </div>
     </div>
-    <div class={css.w66}>
-      <div data-is={tagName} name={opts.name}></div>
-      <docs-code name={opts.tagName}></docs-code>
+    <div class={css.outer}>
+      <div class={css.w33}>
+        <rg-menu items={component_items} title="Riot Components">
+        </rg-menu>
+        <rg-menu items={framework_items} title="CSS Frameworks">
+        </rg-menu>
+      </div>
+      <div class={css.w66}>
+        <div data-is={tagName} name={opts.name}></div>
+        <docs-code name={opts.tagName} if={show_code}></docs-code>
+      </div>
     </div>
   </div>
 
@@ -47,7 +57,13 @@ this.framework_items = frameworks.map( name => ({
   href: `#/framework/${name}/`,
 }))
 
-this.tagName = "docs-" + opts.tagName.replace(/[^\-\w]+/g,"-")
+this.on("update", () => {
+  this.tagName = "docs-" + opts.tagName.replace(/[^\-\w]+/g,"-")
+  if (opts.tagName === "home") {
+    this.big_hero = true
+    this.show_code = false
+  }
+})
 this.on("mount", () => this.update())
 </script>
 </docs-app>

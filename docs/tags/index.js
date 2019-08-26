@@ -1,3 +1,4 @@
+/* documentation for rg-TAGNAME */
 import './alerts'
 import './bubble'
 import './code'
@@ -10,6 +11,8 @@ import './tags'
 import './toasts'
 import './toggle'
 
+/* docs specific */
 import './framework'
 import './menu'
 import './app'
+import './home'

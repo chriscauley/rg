@@ -1,3 +1,19 @@
+.docs-hero {
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.page-strip {
+  background: #F3164E;
+  background: -moz-linear-gradient(left, #F3164E 0%, #32709D 50%, #F3164E 100%);
+  background: -webkit-linear-gradient(left, #F3164E 0%, #32709D 50%, #F3164E 100%);
+  background: linear-gradient(to right, #F3164E 0%, #32709D 50%, #F3164E 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F3164E', endColorstr='#F3164E', GradientType=1);
+  height: 1em;
+}
+
+
 /* #! TODO this is extra CSS for polyfilling bootstrap */
 /* move to separate file or maybe load in js? */
 .rg-pointer { cursor: pointer }
