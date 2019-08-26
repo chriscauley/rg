@@ -41,7 +41,7 @@ const MockXMLHttpRequest = function() {
   return {
     open(_method, url) {
       this.url = url
-      this.responseText = MockXMLHttpRequest[url]
+      this.response = this.responseText = MockXMLHttpRequest[url]
       if (!this.responseText) {
         throw `Mocked url response missing for ${url}`
       }
