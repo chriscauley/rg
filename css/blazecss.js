@@ -29,6 +29,12 @@ export default {
     w75: "grid__cell--width-75 card__content",
     w100: "grid__cell--width-100 card__content",
   },
+  h0: "heading heading--super",
+  h1: "heading heading--xlarge",
+  h2: "heading heading--large",
+  h3: "heading heading--medium",
+  h4: "heading heading--small",
+  h5: "heading heading--xsmall",
   menu: { // #! TODO should this be called dropdown? I think so
     outer: 'menu menu--high',
     default: 'menu__item',
