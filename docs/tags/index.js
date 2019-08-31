@@ -2,6 +2,7 @@
 import './alerts'
 import './bubble'
 import './code'
+import './drawer'
 import './modal'
 import './pagination'
 import './select'

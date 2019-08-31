@@ -30,6 +30,7 @@ this.scopeCSS("grid")
 const components = [
   "alerts",
   "bubble",
+  "drawer",
   "modal",
   "pagination",
   "select",
@@ -62,6 +63,8 @@ this.on("update", () => {
   if (opts.tagName === "home") {
     this.big_hero = true
     this.show_code = false
+  } else {
+    this.show_code = true
   }
 })
 this.on("mount", () => this.update())
