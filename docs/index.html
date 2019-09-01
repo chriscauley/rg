@@ -36,6 +36,13 @@
         link.href = CSS_FRAMEWORKS[selected]
         link.media = 'all'
         link.id = ID
+        link.onload = () => {
+          if (document.body) {
+            document.body.style.display = "block"
+          } else {
+            setTimeout(link.onload,100)
+          }
+        }
         document.getElementsByTagName('head')[0].appendChild(link)
       }
     }
@@ -45,7 +52,7 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
+<body style="display: none">
 
 <docs-app></docs-app>
 

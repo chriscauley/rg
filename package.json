@@ -50,6 +50,7 @@
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "ace-builds": "^1.2.2",
+    "babel-plugin-istanbul": "^5.2.0",
     "chai": "^4.2.0",
     "chart.js": "1.0.2",
     "commonmark": "^0.29.0",

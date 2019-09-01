@@ -32,14 +32,13 @@ module.exports = function (config) {
 			'dependencies/js/iframify.js',
 			'demo/_charts.js',
 			'test-helpers.js',
-			'css/index.js',
 			'tags/**/*',
-			{ pattern: 'demo/inc.html', watched: false, included: false, served: true, nocache: false }
+			'css/**/*.js',
 		],
 		preprocessors: {
-			'tags/**/*.spec.js': ['babel'],
+			'tags/**/*.spec.js': ['parcel', 'coverage'],
 			'tags/**/*.tag': ['riot', 'coverage'],
-			'css/index.js': ['parcel'],
+			'css/**/*.js': ['parcel', 'coverage'],
 		},
 		riotPreprocessor: {
 			options: {
@@ -59,8 +58,7 @@ module.exports = function (config) {
 		browsers: ['ChromeHeadless'],
 		singleRun: true,
 	})
-
-  if (process.env.RIOT_VERSION) {
-    config.set(UNBUNDLED)
-  }
+	if (process.env.RIOT_VERSION) {
+		config.set(UNBUNDLED)
+	}
 }
