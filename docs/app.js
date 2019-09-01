@@ -9,7 +9,6 @@ const routeTag = (tagName='home', opts={}) => riot.mount('*', { ...opts, tagName
 
 route("/", routeTag)
 route("/component/*/", routeTag)
-route("/framework/*/", name => routeTag('framework', { name }))
 
 
 route.start()

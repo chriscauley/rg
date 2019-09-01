@@ -1,6 +1,6 @@
 <docs-drawer>
   <div class="drawer-container">
-    <rg-drawer drawer={drawer}></rg-drawer>
+    <rg-drawer drawer="{drawer}"></rg-drawer>
   </div>
 <script>
   this.drawer = {

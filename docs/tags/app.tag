@@ -11,9 +11,9 @@
     </div>
     <div class={css.outer}>
       <div class={css.w33}>
-        <rg-menu items={component_items} title="Riot Components">
-        </rg-menu>
         <rg-menu items={framework_items} title="CSS Frameworks">
+        </rg-menu>
+        <rg-menu items={component_items} title="Riot Components">
         </rg-menu>
       </div>
       <div class={css.w66}>
@@ -53,10 +53,13 @@ const frameworks = [
   'tailwind',
 ]
 
-this.framework_items = frameworks.map( name => ({
-  text: name,
-  href: `#/framework/${name}/`,
-}))
+this.framework_items = frameworks.map( name => {
+  return {
+    text: name,
+    onclick: () => window.__selectFramework(name),
+    badge: this.css._name === name ? "current": undefined,
+  }
+})
 
 this.on("update", () => {
   this.tagName = "docs-" + opts.tagName.replace(/[^\-\w]+/g,"-")

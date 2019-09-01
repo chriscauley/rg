@@ -4,8 +4,9 @@
     <a href={item.href} class={css.link} each={item in opts.items}
        onclick={item.onclick}>
       { item.text }
-    </li>
-  </ul>
+      <span if={item.badge} class={css.badge.primary}>{item.badge}</span>
+    </a>
+  </div>
 <script>
 this.mixin('CSSMixin')
 this.scopeCSS("nav")
