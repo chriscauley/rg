@@ -34,17 +34,9 @@ export default {
     _transform: transformColor,
   },
   badge: {
-    _base: "badge badge-${VARIANT} ",
-    brand: "badge badge-brand ",
-    info: "badge badge-info ",
-    warning: "badge badge-warning ",
-    success: "badge badge-success ",
-    error: "badge badge-error ",
-    primary: "badge badge-primary ",
-    secondary: "badge badge-secondary ",
-    light: "badge badge-light ",
-    dark: "badge badge-dark ",
-    danger: "badge badge-danger "
+    _base: "bg-${VARIANT}-500 hover:bg-${VARIANT}-700 text-white text-xs px-1 font-bold rounded",
+    _transform: transformColor,
+    _default: "brand",
   },
   field: {
     _base: "field field--${VARIANT} ",
@@ -95,7 +87,7 @@ export default {
     inner: "modal-content "
   },
   nav: {
-    link: "p-2 hover:bg-gray-200 text-blue-400",
+    link: "p-2 hover:bg-gray-200 text-blue-400 cursor-pointer",
     vertical: "flex flex-col mb-4"
   },
   pagination: {

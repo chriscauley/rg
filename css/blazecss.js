@@ -38,7 +38,7 @@ export default {
   menu: { // #! TODO should this be called dropdown? I think so
     outer: 'menu menu--high',
     default: 'menu__item',
-    _base: 'menu__item menu__item--${VARIANT}',
+    _base: 'menu__item menu__item--${VARIANT} rg-pointer',
     selected: "menu__item menu__item--active"
   },
   modal: {
